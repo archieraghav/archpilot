@@ -2,6 +2,7 @@ import { useState } from "react"
 import { formatDistanceToNow } from "date-fns"
 import { Database, Trash2, Pencil, Check, X, MessageSquare } from "lucide-react"
 import { Link } from "react-router-dom"
+import { Sparkles } from "lucide-react"
 
 interface Dataset {
   id: string
@@ -59,6 +60,9 @@ export function DatasetCard({ dataset, onRename, onDelete }: DatasetCardProps) {
         </div>
       </div>
       <div className="flex items-center gap-3">
+        <Link to={`/copilot?dataset=${dataset.id}`} className="text-graphite hover:text-blueprint">
+          <Sparkles size={16} />
+        </Link>
         <Link to={`/chat?dataset=${dataset.id}`} className="text-graphite hover:text-blueprint">
           <MessageSquare size={16} />
         </Link>
