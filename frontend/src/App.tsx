@@ -14,6 +14,7 @@ import Login from "@/pages/auth/Login"
 import Signup from "@/pages/auth/Signup"
 import Datasets from "@/pages/Datasets"
 import DatasetDetail from "@/pages/DatasetDetail"
+import Chat from "@/pages/Chat"
 
 const queryClient = new QueryClient()
 
@@ -42,7 +43,7 @@ function App() {
                 <Route path="/dashboard" element={<div className="p-8">Dashboard coming Day 18</div>} />
                 <Route path="/datasets" element={<Datasets />} />
                 <Route path="/datasets/:id" element={<DatasetDetail />} />
-                <Route path="/chat" element={<div className="p-8">Chat coming Day 14</div>} />
+                <Route path="/chat" element={<Chat />} />
                 <Route path="/copilot" element={<div className="p-8">Copilot coming Day 16</div>} />
                 <Route path="/reports" element={<div className="p-8">Reports coming Day 19</div>} />
                 <Route path="/settings" element={<div className="p-8">Settings coming Day 20</div>} />
