@@ -8,6 +8,8 @@ from app.db.session import get_db
 from app.models.user import User
 from app.schemas.dataset import DatasetOut, DatasetRename, DatasetPreview
 from app.services import dataset_service
+from app.schemas.profile import DatasetProfile
+from app.services import profiling_service
 
 router = APIRouter(prefix="/datasets", tags=["Datasets"])
 
@@ -66,3 +68,11 @@ def delete_dataset(
     current_user: User = Depends(get_current_user),
 ):
     dataset_service.delete_dataset(db, current_user.id, dataset_id)
+
+@router.get("/{dataset_id}/profile", response_model=DatasetProfile)
+def get_dataset_profile(
+    dataset_id: uuid.UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    return profiling_service.profile_dataset(db, current_user.id, dataset_id)
