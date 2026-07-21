@@ -10,6 +10,7 @@ from app.schemas.dataset import DatasetOut, DatasetRename, DatasetPreview
 from app.services import dataset_service
 from app.schemas.profile import DatasetProfile
 from app.services import profiling_service
+from app.services import embedding_service
 
 router = APIRouter(prefix="/datasets", tags=["Datasets"])
 
@@ -76,3 +77,12 @@ def get_dataset_profile(
     current_user: User = Depends(get_current_user),
 ):
     return profiling_service.profile_dataset(db, current_user.id, dataset_id)
+
+@router.post("/{dataset_id}/embed", status_code=201)
+def embed_dataset(
+    dataset_id: uuid.UUID,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    chunk_count = embedding_service.generate_dataset_embeddings(db, current_user.id, dataset_id)
+    return {"chunks_created": chunk_count}
