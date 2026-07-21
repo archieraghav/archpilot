@@ -11,6 +11,10 @@ from app.services import dataset_service
 from app.schemas.profile import DatasetProfile
 from app.services import profiling_service
 from app.services import embedding_service
+from app.schemas.forecast import ForecastResult
+from app.services.analytics import forecasting_service
+from app.services.dataset_service import get_dataset
+from app.services import dataset_service
 
 router = APIRouter(prefix="/datasets", tags=["Datasets"])
 
@@ -86,3 +90,16 @@ def embed_dataset(
 ):
     chunk_count = embedding_service.generate_dataset_embeddings(db, current_user.id, dataset_id)
     return {"chunks_created": chunk_count}
+
+
+@router.get("/{dataset_id}/forecast", response_model=ForecastResult)
+def get_forecast(
+    dataset_id: uuid.UUID,
+    column: str,
+    periods: int = 3,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    dataset = dataset_service.get_dataset(db, current_user.id, dataset_id)
+    df = dataset_service._read_dataframe(dataset.file_path, f".{dataset.file_type}")
+    return forecasting_service.forecast_column(df, column, periods)
