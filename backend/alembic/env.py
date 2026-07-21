@@ -9,6 +9,7 @@ from app.models.user import User
 from app.models.dataset import Dataset
 from app.models.embedding import DatasetEmbedding
 from app.models.chat import ChatMessage
+from app.models.insight import Insight
 
 # Alembic Config object
 config = context.config
