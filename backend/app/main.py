@@ -5,6 +5,7 @@ from app.api.routes import health, auth
 from app.core.config import get_settings
 from app.core.logging import configure_logging, logger
 from app.api.routes import health, auth, datasets
+from app.api.routes import health, auth, datasets, chat
 
 
 def create_app() -> FastAPI:
@@ -29,6 +30,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router, prefix="/api/v1")
     app.include_router(auth.router, prefix="/api/v1")
     app.include_router(datasets.router, prefix="/api/v1")
+    app.include_router(chat.router, prefix="/api/v1")
 
     @app.on_event("startup")
     async def on_startup() -> None:
