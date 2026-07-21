@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { formatDistanceToNow } from "date-fns"
 import { Database, Trash2, Pencil, Check, X } from "lucide-react"
+import { Link } from "react-router-dom"
 
 interface Dataset {
   id: string
@@ -47,7 +48,9 @@ export function DatasetCard({ dataset, onRename, onDelete }: DatasetCardProps) {
               <button onClick={() => { setEditing(false); setName(dataset.name) }}><X size={16} className="text-graphite" /></button>
             </div>
           ) : (
-            <p className="font-body text-sm font-medium">{dataset.name}</p>
+            <Link to={`/datasets/${dataset.id}`} className="font-body text-sm font-medium hover:text-blueprint">
+            {dataset.name}
+            </Link>
           )}
           <p className="font-mono text-xs text-graphite">
             {dataset.row_count} rows · {dataset.column_count} cols · {dataset.file_type.toUpperCase()} ·{" "}
