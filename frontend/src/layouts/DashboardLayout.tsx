@@ -1,6 +1,7 @@
 import { Link, Outlet, useNavigate } from "react-router-dom"
-import { LayoutDashboard, Database, MessageSquare, Sparkles, FileText, Settings, LogOut } from "lucide-react"
+import { LayoutDashboard, Database, MessageSquare, Sparkles, FileText, Settings, LogOut, UserCircle } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
+import { NotificationCenter } from "@/components/NotificationCenter"
 
 const navItems = [
   { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
@@ -9,6 +10,7 @@ const navItems = [
   { to: "/copilot", icon: Sparkles, label: "Copilot" },
   { to: "/reports", icon: FileText, label: "Reports" },
   { to: "/settings", icon: Settings, label: "Settings" },
+  { to: "/profile", icon: UserCircle, label: "Profile" },
 ]
 
 export function DashboardLayout() {
@@ -23,10 +25,11 @@ export function DashboardLayout() {
   return (
     <div className="flex min-h-screen bg-paper font-body text-ink dark:bg-ink dark:text-paper">
       <aside className="flex w-60 flex-col border-r border-line dark:border-white/10">
-        <div className="px-5 py-5">
+        <div className="flex items-center justify-between px-5 py-5">
           <Link to="/" className="font-display text-lg font-semibold">
             Arch<span className="text-blueprint">Pilot</span>
           </Link>
+          <NotificationCenter />
         </div>
         <nav className="flex-1 space-y-1 px-3">
           {navItems.map(({ to, icon: Icon, label }) => (
