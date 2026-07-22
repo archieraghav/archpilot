@@ -7,6 +7,7 @@ from app.core.security import create_access_token, hash_password, verify_passwor
 from app.db.session import get_db
 from app.models.user import User
 from app.schemas.auth import Token, UserCreate, UserOut
+from app.schemas.auth import UserUpdate
 
 router = APIRouter(tags=["Auth"])
 
@@ -43,4 +44,18 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
 
 @router.get("/auth/me", response_model=UserOut)
 def read_current_user(current_user: User = Depends(get_current_user)):
+    return current_user
+
+@router.patch("/auth/me", response_model=UserOut)
+def update_current_user(
+    payload: UserUpdate,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    if payload.full_name is not None:
+        current_user.full_name = payload.full_name
+    if payload.company_name is not None:
+        current_user.company_name = payload.company_name
+    db.commit()
+    db.refresh(current_user)
     return current_user
