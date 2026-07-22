@@ -6,6 +6,7 @@ import { api } from "@/lib/api"
 import { UploadDropzone } from "@/components/UploadDropzone"
 import { DatasetCard } from "@/components/DatasetCard"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Link } from "react-router-dom"
 
 interface Dataset {
   id: string
