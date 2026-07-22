@@ -4,9 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import health, auth
 from app.core.config import get_settings
 from app.core.logging import configure_logging, logger
-from app.api.routes import health, auth, datasets
-from app.api.routes import health, auth, datasets, chat, copilot
-
+from app.api.routes import health, auth, datasets, chat, copilot, reports
 
 def create_app() -> FastAPI:
     configure_logging()
@@ -32,6 +30,8 @@ def create_app() -> FastAPI:
     app.include_router(datasets.router, prefix="/api/v1")
     app.include_router(chat.router, prefix="/api/v1")
     app.include_router(copilot.router, prefix="/api/v1")
+    app.include_router(reports.router, prefix="/api/v1")
+    
 
     @app.on_event("startup")
     async def on_startup() -> None:
