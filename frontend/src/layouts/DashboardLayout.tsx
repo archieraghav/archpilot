@@ -2,6 +2,7 @@ import { Link, Outlet, useNavigate } from "react-router-dom"
 import { LayoutDashboard, Database, MessageSquare, Sparkles, FileText, Settings, LogOut, UserCircle } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
 import { NotificationCenter } from "@/components/NotificationCenter"
+import { DashboardFooter } from "@/components/layout/DashboardFooter"
 
 const navItems = [
   { to: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
@@ -11,6 +12,7 @@ const navItems = [
   { to: "/reports", icon: FileText, label: "Reports" },
   { to: "/settings", icon: Settings, label: "Settings" },
   { to: "/profile", icon: UserCircle, label: "Profile" },
+  
 ]
 
 export function DashboardLayout() {
@@ -52,8 +54,11 @@ export function DashboardLayout() {
           </button>
         </div>
       </aside>
-      <main className="flex-1 overflow-y-auto">
-        <Outlet />
+      <main className="flex min-h-screen flex-1 flex-col overflow-y-auto">
+        <div className="flex-1">
+          <Outlet />
+        </div>
+      <DashboardFooter />
       </main>
     </div>
   )
