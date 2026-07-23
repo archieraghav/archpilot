@@ -91,7 +91,7 @@ export default function Datasets() {
         {!isLoading && datasets?.length === 0 && (
           <div className="flex flex-col items-center rounded-lg border border-dashed border-line py-16 text-center dark:border-white/10">
             <Database size={28} className="text-graphite" />
-            <p className="mt-3 font-body text-sm font-medium">No datasets yet</p>
+            <p className="mt-3 font-accent text-lg text-ink dark:text-paper">No datasets yet</p>
             <p className="mt-1 font-mono text-xs text-graphite">Upload a CSV or Excel file to get started</p>
           </div>
         )}

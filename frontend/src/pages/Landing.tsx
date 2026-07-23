@@ -42,7 +42,7 @@ export default function Landing() {
       <Navbar />
 
       <section className="mx-auto flex max-w-6xl flex-col items-center px-6 pb-20 pt-20 text-center">
-        <span className="mb-6 rounded-full border border-line px-3 py-1 font-mono text-xs uppercase tracking-wide text-graphite dark:border-white/10">
+        <span className="mb-6 rounded-full border border-line px-3 py-1 font-accent text-sm tracking-wide text-graphite dark:border-white/10">
           AI Business Intelligence
         </span>
         <h1 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
