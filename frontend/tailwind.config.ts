@@ -21,9 +21,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["'Space Grotesk'", "sans-serif"],
+        display: ["'Clash Display'", "sans-serif"],
         body: ["Inter", "sans-serif"],
         mono: ["'JetBrains Mono'", "monospace"],
+        accent: ["'Fuzzy Bubbles'", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",
