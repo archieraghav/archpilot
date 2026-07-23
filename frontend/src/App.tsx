@@ -19,6 +19,7 @@ import Copilot from "@/pages/Copilot"
 import Dashboard from "@/pages/Dashboard"
 import Profile from "@/pages/Profile"
 import Settings from "@/pages/Settings"
+import Reports from "@/pages/Reports"
 
 const queryClient = new QueryClient()
 
@@ -49,7 +50,7 @@ function App() {
                 <Route path="/datasets/:id" element={<DatasetDetail />} />
                 <Route path="/chat" element={<Chat />} />
                 <Route path="/copilot" element={<Copilot />} />
-                <Route path="/reports" element={<div className="p-8">Reports coming Day 19</div>} />
+                <Route path="/reports" element={<Reports />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/profile" element={<Profile />} />
               </Route>
