@@ -28,7 +28,7 @@ export function Navbar() {
           </button>
           <Link
             to="/signup"
-            className="rounded-md bg-ink px-4 py-2 font-body text-sm font-medium text-paper hover:bg-ink/90 dark:bg-blueprint dark:hover:bg-blueprint/90"
+            className="rounded-md bg-ink px-3 py-2 font-body text-sm font-medium text-paper hover:bg-ink/90 dark:bg-blueprint dark:hover:bg-blueprint/90 sm:px-4"
           >
             Get started
           </Link>

@@ -55,7 +55,7 @@ export default function Landing() {
           copilot that surfaces the trends, risks, and forecasts you didn't know
           to look for.
         </p>
-        <div className="mt-8 flex gap-4">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
           <Link
             to="/signup"
             className="flex items-center gap-2 rounded-md bg-ink px-6 py-3 font-body text-sm font-medium text-paper hover:bg-ink/90 dark:bg-blueprint dark:hover:bg-blueprint/90"
