@@ -80,7 +80,7 @@ export default function Reports() {
 
   return (
     <div className="p-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="flex items-center gap-2 font-display text-2xl font-semibold">
           <FileText size={22} className="text-blueprint" /> Executive Report
         </h1>
