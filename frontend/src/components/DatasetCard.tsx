@@ -31,7 +31,7 @@ export function DatasetCard({ dataset, onRename, onDelete }: DatasetCardProps) {
   }
 
   return (
-    <div className="flex items-center justify-between rounded-lg border border-line p-4 dark:border-white/10">
+    <div className="flex items-center justify-between rounded-lg border border-line p-4 dark:border-white/10 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex items-center gap-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-md bg-blueprint/10 text-blueprint">
           <Database size={18} />
